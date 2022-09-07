@@ -1,0 +1,46 @@
+server:
+  port: ${PORT:8082}
+spring:  
+  application:
+    name: Users-service
+    
+
+
+     
+
+# Security configuration
+#  security:
+#    user:
+#      name: zeddini
+#      password: zeddini
+  # Database
+  datasource: 
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      pool-name: ':::::::::::: Hikari DS Spades_1-MS POOL ::::::::::::'
+      connection-timeout: 60000
+      maximum-pool-size: 30
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5433/MssConsultingUsersManagement
+    username: postgres
+
+    password: 123
+
+  
+
+  jpa:
+    hibernate:
+      ddl-auto: update # When you launch the application for the first time - switch "none" at "create"
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: false
+    show-sql : false
+    properties:
+      hibernate:
+        format_sql: true
+   
+eureka:
+  client:
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
